@@ -1,0 +1,35 @@
+#Criado por Evandro Gabriel e Flavio Brito
+
+
+
+const form = document.getElementById("formCadastro");
+const lista = document.getElementById("listaUsuarios");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+
+    const novoUsuario = document.createElement("li");
+
+    novoUsuario.textContent =
+        nome + " - " + email;
+
+    const botaoRemover =
+        document.createElement("button");
+
+    botaoRemover.textContent = "Remover";
+
+    botaoRemover.onclick = function() {
+        lista.removeChild(novoUsuario);
+    };
+
+    novoUsuario.appendChild(botaoRemover);
+
+    lista.appendChild(novoUsuario);
+
+    form.reset();
+
+});
